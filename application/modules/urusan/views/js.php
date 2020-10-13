@@ -36,7 +36,7 @@
         });
     });
 
-    $('#btn-edit').on('click', function() {
+    $('#table-urusan').on('click', '#btn-edit', function() {
         let urusanId = $(this).attr('urusan-id');
         $('#modal-default').modal('show');
         $('#urusan_id').val(urusanId);
@@ -60,7 +60,7 @@
         });
     });
 
-    $('#btn-delete').on('click', function() {
+    $('#table-urusan').on('click', '#btn-delete', function() {
         let urusanId = $(this).attr('urusan-id');
         if (confirm('Yakin ?')) {
             $.ajax({
