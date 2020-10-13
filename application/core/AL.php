@@ -16,8 +16,9 @@ class AL extends MX_Controller
         $this->form_validation->set_error_delimiters('<div class="invalid-feedback">', '</div>');
 
         $this->results = [
-            'status'        => false,
-            'message'       => '',
+            'status'    => false,
+            'message'   => '',
+            'data'      => []
         ];
     }
 

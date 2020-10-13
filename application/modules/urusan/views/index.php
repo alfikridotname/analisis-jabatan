@@ -12,15 +12,16 @@
             </div>
         </div>
         <div class="card-body">
-            <button type="button" class="btn btn-primary btn-sm mb-4" data-toggle="modal" data-target="#modal-default">
+            <button type="button" class="btn btn-primary btn-sm mb-4" id="btn-create">
                 Tambah Data
             </button>
-            <table id="myTable" class="table">
+            <table id="table-urusan" class="table">
                 <thead>
                     <tr>
                         <th width="1%">No</th>
                         <th>Urusan</th>
                         <th>Sub Urusan</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -29,6 +30,10 @@
                             <td><?= $key + 1; ?></td>
                             <td><?= $value->urusan; ?></td>
                             <td><?= $value->sub_urusan; ?></td>
+                            <td>
+                                <button class="btn btn-danger btn-sm" id="btn-delete" urusan-id="<?= $value->urusan_id; ?>">Delete</button>
+                                <button class="btn btn-primary btn-sm" id="btn-edit" urusan-id="<?= $value->urusan_id; ?>">Edit</button>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -48,6 +53,8 @@
                 </button>
             </div>
             <form id="form-create" method="POST">
+                <input type="hidden" name="urusan_id" id="urusan_id">
+                <input type="hidden" name="status" id="status" value="create">
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="urusan">Urusan</label>

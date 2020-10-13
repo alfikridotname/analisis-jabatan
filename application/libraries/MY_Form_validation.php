@@ -34,6 +34,23 @@ class MY_Form_validation extends CI_Form_Validation
                     'field' => 'urusan',
                     'label' => 'Urusan',
                     'rules' => 'required|trim'
+                ),
+                array(
+                    'field' => 'sub_urusan',
+                    'label' => 'Sub Urusan',
+                    'rules' => 'required|trim'
+                )
+            ),
+            'urusan/update' => array(
+                array(
+                    'field' => 'urusan',
+                    'label' => 'Urusan',
+                    'rules' => 'required|trim'
+                ),
+                array(
+                    'field' => 'sub_urusan',
+                    'label' => 'Sub Urusan',
+                    'rules' => 'required|trim'
                 )
             ),
         );
