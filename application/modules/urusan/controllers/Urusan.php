@@ -21,4 +21,29 @@ class Urusan extends AL
 
         $this->template->load('backend', $data['page'], $data);
     }
+
+    public function save()
+    {
+        if (!$this->input->is_ajax_request()) :
+            show_404();
+        endif;
+
+        if ($this->form_validation->run($this) == FALSE) :
+            foreach ($_POST as $key => $value) {
+                $this->results['validation'][$key] = form_error($key);
+            }
+            $this->results['status']    = false;
+            $this->results['message']   = 'Simpan gagal !';
+        else :
+            $save = $this->UrusanModel->save();
+            if ($save) :
+                $this->results['status']    = true;
+                $this->results['message']   = 'Simpan Sukses !';
+            else :
+                $this->results['status'] = false;
+            endif;
+        endif;
+
+        echo json_encode($this->results);
+    }
 }

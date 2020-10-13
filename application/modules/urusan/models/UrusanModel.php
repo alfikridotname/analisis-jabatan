@@ -9,4 +9,15 @@ class UrusanModel extends CI_Model
     {
         return $this->db->get($this->tableUrusan);
     }
+
+    public function save()
+    {
+        $data = [
+            'urusan'        => $this->input->post('urusan'),
+            'sub_urusan'    => $this->input->post('sub_urusan'),
+        ];
+
+        $this->db->insert($this->tableUrusan, $data);
+        return $this->db->affected_rows();
+    }
 }

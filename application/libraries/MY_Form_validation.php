@@ -28,7 +28,14 @@ class MY_Form_validation extends CI_Form_Validation
                     'label' => 'password',
                     'rules' => 'required'
                 )
-            )
+            ),
+            'urusan/save' => array(
+                array(
+                    'field' => 'urusan',
+                    'label' => 'Urusan',
+                    'rules' => 'required|trim'
+                )
+            ),
         );
 
         return empty($config[$param]) ? '' : $config[$param];

@@ -3,4 +3,20 @@
     $(document).ready(function() {
         $('#myTable').DataTable();
     });
+
+    $('#form-create').on('submit', function(e) {
+        e.preventDefault();
+
+        $.ajax({
+            url: baseUrl('urusan/save'),
+            type: 'POST',
+            dataType: 'JSON',
+            data: $(this).serialize(),
+            success: function(data) {
+                if (data.status == true) {
+                    $('#modal-default').modal('hide');
+                }
+            }
+        });
+    });
 </script>

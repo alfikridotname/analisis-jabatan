@@ -19,13 +19,16 @@
                 <thead>
                     <tr>
                         <th width="1%">No</th>
-                        <th>Urusan Pemerintahan</th>
+                        <th>Urusan</th>
+                        <th>Sub Urusan</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach ($urusan->result() as $key => $value) : ?>
                         <tr>
-                            <td>tes</td>
+                            <td><?= $key + 1; ?></td>
+                            <td><?= $value->urusan; ?></td>
+                            <td><?= $value->sub_urusan; ?></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -39,18 +42,27 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Default Modal</h4>
+                <h4 class="modal-title">Tambah Data</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <p>One fine body&hellip;</p>
-            </div>
-            <div class="modal-footer justify-content-between">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+            <form id="form-create" method="POST">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="urusan">Urusan</label>
+                        <input type="text" class="form-control" name="urusan" id="urusan" placeholder="Input data urusan">
+                    </div>
+                    <div class="form-group">
+                        <label for="sub_urusan">Sub Urusan</label>
+                        <input type="text" class="form-control" name="sub_urusan" id="sub_urusan" placeholder="Input data sub urusan">
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </form>
         </div>
         <!-- /.modal-content -->
     </div>
